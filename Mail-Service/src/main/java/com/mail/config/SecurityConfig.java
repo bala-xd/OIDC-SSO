@@ -1,4 +1,4 @@
-package com.client.config;
+package com.mail.config;
 
 import java.util.Arrays;
 

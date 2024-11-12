@@ -1,4 +1,4 @@
-package com.client;
+package com.mail;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,22 +24,19 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173")
-public class HomeController {
-
-    @Autowired
-    private OAuth2AuthorizedClientService authorizedClientService;
+public class MailController {
 
     @Autowired
     private RestTemplate restTemplate;
     
     @GetMapping("")
     public String test() {
-        return "This is Client-API";
+        return "This is Mail-API";
     }
 
     @GetMapping("/home")
     public String hello() {
-        return "Welcome to HomePage (Client-APP 1)!";
+        return "Welcome, your inbox is Empty! (Client-APP 2)";
     }
 
     @GetMapping("/tokens")
@@ -68,7 +65,7 @@ public class HomeController {
     }
 
     @GetMapping("/user")
-    public String users() {
+    public String userinfo() {
         // Access the protected resource (userinfo endpoint)
         return this.restTemplate.getForObject("http://127.0.0.1:8080/userinfo", String.class);
     }
